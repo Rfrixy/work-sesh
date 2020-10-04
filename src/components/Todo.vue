@@ -2,7 +2,7 @@
   <h1>{{ msg }}</h1>
   <button @click="count++">count is: {{ count }}</button>
   <p>Edit <code>components/Todo.vue</code> to test hot module replacement.</p>
-  <EditCircle />
+  <EditCircle v-model:num="goalNum" />
 </template>
 
 <script>
@@ -15,6 +15,7 @@ export default {
   data() {
     return {
       count: 0,
+      goalNum: 0,
     };
   },
   components: {
