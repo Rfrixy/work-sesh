@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     limitVal(e) {
-      const val = Number.parseInt(e.target.value);
+      let val = Number.parseInt(e.target.value);
       if (val > 99) val = 99;
       else if (val < 0) val = 0;
       this.numberVal = val;
