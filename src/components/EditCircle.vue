@@ -37,9 +37,6 @@ input[type="number"] {
 
 <script>
 export default {
-  mounted() {
-    console.log("mounted");
-  },
   data() {
     console.log("this props num", this.$props.num);
     return {
