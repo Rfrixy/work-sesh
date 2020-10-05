@@ -1,24 +1,30 @@
 <template>
   <div class="wrapper">
-    <EditCircle v-model:num="points" :completed="completed" />
-    <span class="todo-item">
+    <div class="todo-item">
+      <EditCircle v-model:num="points" :completed="completed" />
       <input type="checkbox" class="todo-checkbox" v-model="completed" />
       <input type="text" v-model="text" :class="{ strikethrough: completed }" />
       <button type="button" class="trash-button" @click="deleteTodo">
         <i class="trash-icon fa fa-trash-o"></i>
       </button>
-    </span>
+    </div>
   </div>
 </template>
 
 <style scoped>
 .wrapper {
   padding-top: 18px;
+  display: flex;
+  justify-content: center;
 }
 
 .todo-item {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-left: 12px;
+  width: 100%;
+  max-width: 550px;
 }
 
 .todo-checkbox {
@@ -44,10 +50,10 @@ input[type="text"] {
   border-top: none;
   width: fit-content;
   min-width: 15px;
-  width: 400px;
   padding: 4px;
   padding-left: 12px;
   margin-right: 12px;
+  flex: 1;
 }
 
 input:focus {

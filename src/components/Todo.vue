@@ -1,5 +1,5 @@
 <template>
-  <h1>{{ msg }}</h1>
+  <h1 class="title">{{ msg }}</h1>
   <TodoItem
     v-for="(item, index) in todos"
     :key="index"
@@ -9,6 +9,11 @@
   <AddButton :addTodo="addTodo" />
 </template>
 
+<style scoped>
+.title {
+  margin: auto;
+}
+</style>
 <script>
 import EditCircle from "./EditCircle.vue";
 import TodoItem from "./TodoItem.vue";
