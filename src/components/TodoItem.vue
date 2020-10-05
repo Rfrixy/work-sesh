@@ -1,10 +1,10 @@
 <template>
   <div class="wrapper">
-    <EditCircle v-model:num="numberVal" />
+    <EditCircle v-model:num="points" :completed="completed" />
     <span class="todo-item">
-      <input type="checkbox" class="todo-checkbox" />
-      <input type="text" />
-      <button type="button" class="trash-button">
+      <input type="checkbox" class="todo-checkbox" v-model="completed" />
+      <input type="text" v-model="text" :class="{ strikethrough: completed }" />
+      <button type="button" class="trash-button" @click="deleteTodo">
         <i class="trash-icon fa fa-trash-o"></i>
       </button>
     </span>
@@ -26,6 +26,10 @@
   height: 18px;
   width: 18px;
   vertical-align: middle;
+}
+
+.strikethrough {
+  text-decoration: line-through;
 }
 
 input[type="text"] {
@@ -82,13 +86,36 @@ import EditCircle from "./EditCircle.vue";
 
 export default {
   data() {
-    console.log("this props num", this.$props.num);
+    console.log("this props ", this.$props.todoItem);
     return {
-      numberVal: this.$props.todoPoints,
+      points: this.$props.todoItem.points,
+      text: this.$props.todoItem.text,
+      completed: this.$props.todoItem.completed,
     };
   },
+  watch: {
+    points() {
+      this.emitUpdate();
+    },
+    text() {
+      this.emitUpdate();
+    },
+    completed() {
+      this.emitUpdate();
+    },
+  },
+  methods: {
+    emitUpdate() {
+      this.$emit("update:todoItem", {
+        points: this.points,
+        text: this.text,
+        completed: this.completed,
+      });
+    },
+  },
   props: {
-    todoPoints: Number,
+    todoItem: Object,
+    deleteTodo: Function,
   },
   components: {
     EditCircle,

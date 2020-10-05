@@ -6,19 +6,24 @@
     @change="limitVal"
     v-model="numberVal"
     @focus="$event.target.select()"
+    :class="{ green: completed }"
   />
 </template>
 
 <style scoped>
 input {
   border-radius: 25px;
-  border: 2px solid #73ad2181;
+  border: 2px solid #d3d3d3;
   height: 2em;
   line-height: 1em;
   width: 25px;
   text-align: center;
   border-top: none;
   border-bottom: none;
+}
+
+.green {
+  border: 2px solid #73ad2181;
 }
 
 input:focus {
@@ -48,6 +53,7 @@ export default {
   },
   props: {
     num: Number,
+    completed: Boolean,
   },
   methods: {
     limitVal(e) {
