@@ -1,12 +1,15 @@
 <template>
   <h1>{{ msg }}</h1>
-  <button @click="count++">count is: {{ count }}</button>
-  <p>Edit <code>components/Todo.vue</code> to test hot module replacement.</p>
-  <EditCircle v-model:num="goalNum" />
+  <TodoItem v-model:todoPoints="goalNum" />
+  <TodoItem v-model:todoPoints="goalNum" />
+  <TodoItem v-model:todoPoints="goalNum" />
+  <TodoItem v-model:todoPoints="goalNum" />
+  <TodoItem v-model:todoPoints="goalNum" />
 </template>
 
 <script>
 import EditCircle from "./EditCircle.vue";
+import TodoItem from "./TodoItem.vue";
 export default {
   name: "Todo",
   props: {
@@ -20,6 +23,7 @@ export default {
   },
   components: {
     EditCircle,
+    TodoItem,
   },
 };
 </script>

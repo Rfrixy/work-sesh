@@ -5,17 +5,20 @@
     max="99"
     @change="limitVal"
     v-model="numberVal"
+    @focus="$event.target.select()"
   />
 </template>
 
 <style scoped>
 input {
   border-radius: 25px;
-  border: 2px solid #73ad21;
+  border: 2px solid #73ad2181;
   height: 2em;
   line-height: 1em;
   width: 25px;
   text-align: center;
+  border-top: none;
+  border-bottom: none;
 }
 
 input:focus {
